@@ -1,2 +1,2 @@
-nombre = input("¿Cuál es tu nombre? :B ")
+nombre = input("¿Cuál es tu nombre? :D ")
 print(f"¡Hola, {nombre}! Bienvenido al mundo de Python.")
