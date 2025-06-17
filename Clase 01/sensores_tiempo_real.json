@@ -1,0 +1,92 @@
+[
+  {
+    "sensor": "Sensor_Temp_01",
+    "timestamp": "2025-06-17T17:18:10.116566",
+    "valor": 20.0,
+    "unidad": "°C"
+  },
+  {
+    "sensor": "Sensor_Hum_01",
+    "timestamp": "2025-06-17T17:18:10.116566",
+    "valor": 45.0,
+    "unidad": "%"
+  },
+  {
+    "sensor": "Sensor_Pres_01",
+    "timestamp": "2025-06-17T17:18:10.116566",
+    "valor": 1013.0,
+    "unidad": "hPa"
+  },
+  {
+    "sensor": "Sensor_Temp_01",
+    "timestamp": "2025-06-17T17:18:12.119484",
+    "valor": 22.5,
+    "unidad": "°C"
+  },
+  {
+    "sensor": "Sensor_Hum_01",
+    "timestamp": "2025-06-17T17:18:12.119484",
+    "valor": 47.8,
+    "unidad": "%"
+  },
+  {
+    "sensor": "Sensor_Pres_01",
+    "timestamp": "2025-06-17T17:18:12.119484",
+    "valor": 1014.1,
+    "unidad": "hPa"
+  },
+  {
+    "sensor": "Sensor_Temp_01",
+    "timestamp": "2025-06-17T17:18:14.121969",
+    "valor": 25.0,
+    "unidad": "°C"
+  },
+  {
+    "sensor": "Sensor_Hum_01",
+    "timestamp": "2025-06-17T17:18:14.121969",
+    "valor": 50.6,
+    "unidad": "%"
+  },
+  {
+    "sensor": "Sensor_Pres_01",
+    "timestamp": "2025-06-17T17:18:14.121969",
+    "valor": 1015.2,
+    "unidad": "hPa"
+  },
+  {
+    "sensor": "Sensor_Temp_01",
+    "timestamp": "2025-06-17T17:18:16.125155",
+    "valor": 27.5,
+    "unidad": "°C"
+  },
+  {
+    "sensor": "Sensor_Hum_01",
+    "timestamp": "2025-06-17T17:18:16.125155",
+    "valor": 53.4,
+    "unidad": "%"
+  },
+  {
+    "sensor": "Sensor_Pres_01",
+    "timestamp": "2025-06-17T17:18:16.125155",
+    "valor": 1016.3,
+    "unidad": "hPa"
+  },
+  {
+    "sensor": "Sensor_Temp_01",
+    "timestamp": "2025-06-17T17:18:18.127767",
+    "valor": 30.0,
+    "unidad": "°C"
+  },
+  {
+    "sensor": "Sensor_Hum_01",
+    "timestamp": "2025-06-17T17:18:18.127767",
+    "valor": 56.2,
+    "unidad": "%"
+  },
+  {
+    "sensor": "Sensor_Pres_01",
+    "timestamp": "2025-06-17T17:18:18.127767",
+    "valor": 1017.4,
+    "unidad": "hPa"
+  }
+]
