@@ -2,7 +2,6 @@
 ANÁLISIS DE CASO: Aplicación de NumPy en el Análisis de Datos Financieros
 Módulo 3 - Obtención y Preparación de Datos
 Bootcamp de Ingeniería de Datos
-
 Fecha: Junio 2025
 """
 
