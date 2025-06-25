@@ -447,11 +447,7 @@ def verificar_categoria(categoria, set_categorias):
 ### Aplicación en Ingeniería de Datos
 Este módulo me preparó perfectamente para trabajar con **datasets grandes**, **pipelines de datos** y **análisis en tiempo real**. Las optimizaciones aprendidas son directamente aplicables a problemas reales de ingeniería de datos.
 
-## 📞 Contacto y Colaboración
 
-- **GitHub**: [Mi repositorio PyLearningHub](.)
-- **LinkedIn**: [Mi perfil profesional](#)
-- **Email**: [contacto@estudiante.com](#)
 
 
 
