@@ -100,7 +100,7 @@ pip install numpy pandas scikit-learn openpyxl
 ### Ejecución
 ```bash
 # Clonar el repositorio
-git clone https://github.com/[tu-usuario]/modulo3-preparacion-datos.git
+git clone https://github.com/cindyberrios02/Ingenieria-Datos-Bootcamp-Ecas-O2025.git
 cd modulo3-preparacion-datos
 
 # Ejecutar el script principal
@@ -212,10 +212,6 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 
 ⭐ **Si este proyecto te resultó útil, ¡dale una estrella!** ⭐
 
-📊 **Ver en acción**: [Link al proyecto desplegado](tu-link-demo)
-
-🚀 **Próximo proyecto**: [Módulo 4 - Visualización de Datos](link-modulo-4)
-
 ---
 
 > *"Los datos son el nuevo petróleo, pero como el petróleo, deben ser refinados para ser útiles."* - Este proyecto demuestra ese refinamiento en acción.
@@ -232,4 +228,3 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 - [📋 Ver código completo](portafolio_modulo3_completo.py)
 - [📊 Descargar datos finales](datos/dataset_final_completo.csv)
 - [📈 Ver reporte ejecutivo](datos/reporte_final_ecommerce.xlsx)
-- [🤔 Leer reflexiones](documentacion/reflexiones_aprendizaje.md)
