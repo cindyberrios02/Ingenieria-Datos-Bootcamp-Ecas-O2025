@@ -2,9 +2,7 @@
 
 **Bootcamp de Ingeniería de Datos - Módulo 4**  
 **Fecha:** Julio 2025  
-**Autor:** [Tu nombre]
 
----
 
 ## 📋 Resumen Ejecutivo
 
@@ -17,7 +15,6 @@ La empresa de comercio electrónico enfrenta serios desafíos de escalabilidad d
 - Reducir costos operativos en un 40% mediante autoescalado
 - Mejorar la disponibilidad del 99.5% al 99.99%
 
----
 
 ## 🔍 Análisis del Problema Actual
 
@@ -45,7 +42,6 @@ La empresa de comercio electrónico enfrenta serios desafíos de escalabilidad d
 - **Experiencia del usuario:** Net Promoter Score descendió de 8.2 a 6.1
 - **Costos operativos:** $45,000 mensuales en infraestructura subutilizada
 
----
 
 ## 🏗️ Diseño de la Solución en DynamoDB
 
@@ -130,7 +126,6 @@ PK: CUST#12346, SK: 2025-07-21T09:15:00Z
 PK: CUST#12347, SK: 2025-07-21T11:45:00Z
 ```
 
----
 
 ## ⚖️ Evaluación de la Solución
 
@@ -179,7 +174,6 @@ PK: CUST#12347, SK: 2025-07-21T11:45:00Z
 | **TOTAL** | $50,000 | $21,000 |
 | **AHORRO** | - | **58% ($29,000)** |
 
----
 
 ## 🚀 Estrategia de Optimización y Escalabilidad
 
@@ -265,7 +259,6 @@ with table.batch_writer() as batch:
 - Comprimir atributos grandes (como arrays de items)
 - Usar S3 para documentos adjuntos grandes
 
----
 
 ## 📈 Plan de Migración
 
@@ -293,7 +286,6 @@ with table.batch_writer() as batch:
 - [ ] Optimización final de costos
 - [ ] Documentación y handover
 
----
 
 ## 📊 Métricas de Éxito
 
@@ -319,7 +311,6 @@ CloudWatch Alarms:
 - ConsumedReadCapacity > 80%
 ```
 
----
 
 ## 🎯 Conclusiones y Recomendaciones Finales
 
@@ -360,10 +351,3 @@ Los principales riesgos (curva de aprendizaje, consistencia eventual) son mitiga
 5. **Optimización continua:** Cultura de mejora continua post-migración
 
 La migración a Amazon DynamoDB representa una transformación estratégica que posicionará a la empresa para el crecimiento sostenible, mejorará significativamente la experiencia del cliente y reducirá los costos operativos. Con la planificación y ejecución adecuadas, esta iniciativa será un catalizador clave para el éxito a largo plazo de la plataforma de e-commerce.
-
----
-
-**Documento preparado por:** [Tu nombre]  
-**Fecha:** Julio 21, 2025  
-**Versión:** 1.0  
-**Contacto:** [tu-email@ejemplo.com]
