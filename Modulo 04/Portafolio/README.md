@@ -59,7 +59,7 @@ graph TD
 ### 📁 Estructura del Proyecto
 
 ```
-Modulo 04/Portafolio/
+modulo4-bases-datos/
 ├── 📖 README.md
 ├── 📚 documentacion/
 │   ├── 01-analisis-tecnologias.md
@@ -160,14 +160,11 @@ Nuestro dataset incluye:
 
 ### 🤝 Contribuciones
 
-Este proyecto fue desarrollado como parte del Bootcamp de Ingeniería de Datos, demostrando competencias en:
+Este proyecto fue desarrollado como parte del Bootcamp de Ingeniería de Datos de Alkemy, demostrando competencias en:
 - Diseño de arquitecturas de datos
 - Implementación de bases de datos relacionales y NoSQL
 - Optimización de consultas y rendimiento
 - Documentación técnica y mejores prácticas
 
-### 📧 Contacto
-
-**Autor**: Cindy Berrios
 
 *Este proyecto demuestra la implementación práctica de un ecosistema de bases de datos empresarial, combinando lo mejor de los mundos SQL y NoSQL para crear una solución robusta, escalable y eficiente.*
