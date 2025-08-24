@@ -25,7 +25,7 @@ Este repositorio contiene la implementación completa del análisis de caso para
 
 ```bash
 # Clonar el repositorio
-git clone [tu-repo-url]
+git clone https://github.com/cindyberrios02/Ingenieria-Datos-Bootcamp-Ecas-O2025
 cd ml-case-analysis
 
 # Crear entorno virtual (recomendado)
