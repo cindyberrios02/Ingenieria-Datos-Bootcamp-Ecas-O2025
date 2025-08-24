@@ -1,0 +1,5 @@
+ID,Edad_Original,Ingresos_Original,Ciudad_Original,Ciudad_LabelEncoded,Edad_MinMax,Ingresos_MinMax,Edad_ZScore,Ingresos_ZScore,Ciudad_Barcelona,Ciudad_Madrid,Ciudad_Sevilla
+1,25,30000.0,Madrid,1,0.0,0.0,-1.2649110640673518,-1.4142135623730951,False,True,False
+2,45,50000.0,Sevilla,2,1.0,1.0,1.2649110640673518,1.4142135623730951,False,False,True
+3,30,40000.0,Madrid,1,0.25,0.5,-0.6324555320336759,0.0,False,True,False
+4,40,40000.0,Barcelona,0,0.75,0.5,0.6324555320336759,0.0,True,False,False
