@@ -14,8 +14,6 @@ En el caso de MarketTrend S.A., se pueden identificar claramente las 5 V's de Bi
 
 Se propone una arquitectura Big Data básica siguiendo el modelo de la **Arquitectura Lambda**, que combina la eficiencia del procesamiento por lotes con la agilidad del procesamiento en tiempo real.
 
-http://googleusercontent.com/image_generation_content/0
-
 **Tecnologías para la Adquisición de Datos (Capa de Ingesta):**
 
 * **Apache Kafka:** Ideal para la ingesta de datos de alta velocidad y en tiempo real (*streaming*) provenientes de redes sociales y aplicaciones móviles. Funciona como un *message broker* distribuido y tolerante a fallos.
