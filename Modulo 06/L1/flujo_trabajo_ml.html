@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flujo de Trabajo ML - Detección de Churn</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .workflow-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .phase {
+            margin-bottom: 30px;
+            border-left: 4px solid #3498db;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .phase-title {
+            font-weight: bold;
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .phase-icon {
+            width: 30px;
+            height: 30px;
+            background: #3498db;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        .phase-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 200px;
+            background: white;
+            border-radius: 6px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 3px solid #e74c3c;
+        }
+        
+        .step-title {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .step-description {
+            color: #555;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        
+        .step-list {
+            margin: 0;
+            padding-left: 15px;
+        }
+        
+        .step-list li {
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+        
+        .arrow {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        
+        .arrow-icon {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 20px solid #3498db;
+        }
+        
+        .metrics {
+            background: #e8f5e8;
+            border-left-color: #27ae60;
+            border-radius: 6px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        
+        .metrics-title {
+            font-weight: bold;
+            color: #27ae60;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        
+        .deployment {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        
+        .monitoring {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="workflow-container">
+        <h1 class="title">Flujo de Trabajo ML: Detección de Churn en Servicio de Streaming</h1>
+        
+        <!-- Fase 1: Entendimiento del Problema -->
+        <div class="phase">
+            <div class="phase-title">
+                <div class="phase-icon">1</div>
+                Entendimiento del Problema y Objetivos de Negocio
+            </div>
+            <div class="phase-content">
+                <div class="step">
+                    <div class="step-title">Definición del Problema</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Definir qué constituye "churn" (ej: cancelación, inactividad > 30 días)</li>
+                            <li>Establecer ventana temporal para predicción</li>
+                            <li>Cuantificar impacto económico del churn</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-title">Objetivos de Negocio</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Reducir churn en X% en los próximos 6 meses</li>
+                            <li>Identificar clientes de alto riesgo para campañas de retención</li>
+                            <li>Optimizar costo de adquisición vs retención</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-title">Restricciones</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Budget para campañas de retención</li>
+                            <li>Tiempo de respuesta del modelo < 100ms</li>
+                            <li>Interpretabilidad para equipos de marketing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">
+            <div class="arrow-icon"></div>
+        </div>
+        
+        <!-- Fase 2: Recolección y Exploración de Datos -->
+        <div class="phase">
+            <div class="phase-title">
+                <div class="phase-icon">2</div>
+                Recolección y Exploración de Datos
+            </div>
+            <div class="phase-content">
+                <div class="step">
+                    <div class="step-title">Fuentes de Datos</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Base de datos de usuarios (demografía, suscripción)</li>
+                            <li>Logs de actividad (tiempo de uso, contenido consumido)</li>
+                            <li>Historial de transacciones y pagos</li>
+                            <li>Datos de soporte al cliente</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-title">Análisis Exploratorio</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Distribución de la variable objetivo (churn rate)</li>
+                            <li>Análisis de correlaciones entre variables</li>
+                            <li>Identificación de patrones temporales</li>
+                            <li>Detección de outliers y valores faltantes</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-title">Calidad de Datos</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Evaluación de completitud (% valores faltantes)</li>
+                            <li>Consistencia de formatos y rangos</li>
+                            <li>Detección de duplicados</li>
+                            <li>Validación de reglas de negocio</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">
+            <div class="arrow-icon"></div>
+        </div>
+        
+        <!-- Fase 3: Preparación de Datos -->
+        <div class="phase">
+            <div class="phase-title">
+                <div class="phase-icon">3</div>
+                Preparación y Limpieza de Datos
+            </div>
+            <div class="phase-content">
+                <div class="step">
+                    <div class="step-title">Limpieza</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Tratamiento de valores faltantes (imputación/eliminación)</li>
+                            <li>Corrección de outliers</li>
+                            <li>Eliminación de duplicados</li>
+                            <li>Estandarización de formatos</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-title">Feature Engineering</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Variables temporales (días desde última actividad)</li>
+                            <li>Métricas de engagement (sesiones/semana, horas/día)</li>
+                            <li>Variables categóricas dummy</li>
+                            <li>Ratios y diferencias (ej: gasto actual vs histórico)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-title">Transformaciones</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Escalado de variables numéricas</li>
+                            <li>Encoding de variables categóricas</li>
+                            <li>Tratamiento de asimetría (log transform)</li>
+                            <li>Selección de características relevantes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">
+            <div class="arrow-icon"></div>
+        </div>
+        
+        <!-- Fase 4: División y Modelado -->
+        <div class="phase">
+            <div class="phase-title">
+                <div class="phase-icon">4</div>
+                Modelado y Entrenamiento
+            </div>
+            <div class="phase-content">
+                <div class="step">
+                    <div class="step-title">División de Datos</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Train (70%): Entrenamiento del modelo</li>
+                            <li>Validation (15%): Tuning de hiperparámetros</li>
+                            <li>Test (15%): Evaluación final</li>
+                            <li>División temporal para evitar data leakage</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-title">Selección de Modelo</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Baseline: Regresión Logística</li>
+                            <li>Candidatos: Random Forest, XGBoost, LightGBM</li>
+                            <li>Comparación mediante validación cruzada</li>
+                            <li>Consideración de interpretabilidad vs performance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-title">Optimización</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Grid Search / Random Search para hiperparámetros</li>
+                            <li>Manejo de desbalance de clases (SMOTE, class weights)</li>
+                            <li>Regularización para evitar overfitting</li>
+                            <li>Validación cruzada estratificada</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">
+            <div class="arrow-icon"></div>
+        </div>
+        
+        <!-- Fase 5: Evaluación -->
+        <div class="phase">
+            <div class="phase-title">
+                <div class="phase-icon">5</div>
+                Evaluación y Validación del Modelo
+            </div>
+            <div class="phase-content">
+                <div class="step">
+                    <div class="step-title">Métricas Técnicas</div>
+                    <div class="step-description">
+                        <div class="metrics">
+                            <div class="metrics-title">Métricas Principales:</div>
+                            <ul class="step-list">
+                                <li><strong>Recall:</strong> Capturar máximo número de churners</li>
+                                <li><strong>Precision:</strong> Minimizar falsas alarmas</li>
+                                <li><strong>F1-Score:</strong> Balance general</li>
+                                <li><strong>AUC-ROC:</strong> Capacidad discriminativa</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-title">Validación de Negocio</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>ROI esperado de campañas de retención</li>
+                            <li>Análisis de feature importance</li>
+                            <li>Calibración de probabilidades</li>
+                            <li>Estabilidad temporal del modelo</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-title">Testing Riguroso</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Out-of-time validation</li>
+                            <li>Análisis de residuos y errores</li>
+                            <li>Testing de robustez ante cambios</li>
+                            <li>Comparación con modelo baseline</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">
+            <div class="arrow-icon"></div>
+        </div>
+        
+        <!-- Fase 6: Despliegue -->
+        <div class="phase">
+            <div class="phase-title">
+                <div class="phase-icon">6</div>
+                Despliegue e Implementación
+            </div>
+            <div class="phase-content">
+                <div class="step deployment">
+                    <div class="step-title">Puesta en Producción</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Containerización del modelo (Docker)</li>
+                            <li>API REST para inferencia en tiempo real</li>
+                            <li>Pipeline automatizado de predicción</li>
+                            <li>Integración con sistemas de CRM</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step deployment">
+                    <div class="step-title">Testing en Producción</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>A/B Testing con grupo control</li>
+                            <li>Rollout gradual (canary deployment)</li>
+                            <li>Monitoreo de latencia y throughput</li>
+                            <li>Validación de datos de entrada</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step deployment">
+                    <div class="step-title">Documentación</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Manual técnico del modelo</li>
+                            <li>Guías de uso para equipos de negocio</li>
+                            <li>Procedimientos de mantenimiento</li>
+                            <li>Planes de contingencia</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">
+            <div class="arrow-icon"></div>
+        </div>
+        
+        <!-- Fase 7: Monitoreo -->
+        <div class="phase">
+            <div class="phase-title">
+                <div class="phase-icon">7</div>
+                Monitoreo y Mantenimiento Continuo
+            </div>
+            <div class="phase-content">
+                <div class="step monitoring">
+                    <div class="step-title">Monitoreo del Modelo</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Data drift: cambios en distribución de variables</li>
+                            <li>Concept drift: cambios en relación target-features</li>
+                            <li>Performance metrics en producción</li>
+                            <li>Alertas automáticas por degradación</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step monitoring">
+                    <div class="step-title">Reentrenamiento</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Schedule periódico (mensual/trimestral)</li>
+                            <li>Reentrenamiento trigger-based</li>
+                            <li>Validación de nueva versión</li>
+                            <li>Rollback procedures</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step monitoring">
+                    <div class="step-title">Optimización Continua</div>
+                    <div class="step-description">
+                        <ul class="step-list">
+                            <li>Incorporación de nuevas fuentes de datos</li>
+                            <li>Mejoras en feature engineering</li>
+                            <li>Evaluación de nuevos algoritmos</li>
+                            <li>Feedback loop con equipos de negocio</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
